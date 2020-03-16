@@ -18,6 +18,9 @@ function App() {
         >
           Learn React
         </a>
+          <button>I'm a button</button>
+          <button>I'm a button too</button>
+          <button>I think I'm a button</button>
       </header>
     </div>
   );
