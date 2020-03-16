@@ -18,9 +18,13 @@ function App() {
         >
           Learn React
         </a>
-          <button>I'm a button</button>
-          <button>I'm a button too</button>
-          <button>I think I'm a button</button>
+         <p>username</p>
+         <input type="text"/>
+         <p>email</p>
+         <input type="email"/>
+         <p>password</p>
+         <input type="password"/>
+         <button onClick={()=>alert('done!')}>Sign up!</button>
       </header>
     </div>
   );
