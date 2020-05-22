@@ -4,30 +4,55 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Board;
 use App\Models\Pin;
 use Illuminate\Http\Request;
 
-class PinsController extends Controller
+class BoardsController extends Controller
 {
-    public function create(Request $request) {
+    public function create(Request $request)
+    {
         $data = $request->all();
 
-        $pins = Pin::create([
+        $boards = Board::create([
             'name' => $data['name'],
             'description' => $data['description'],
-            'img_url' => $data['img_url']
+            'category' => $data['category'],
+            'owner' => $data['owner'],
         ]);
 
-        return response()->json($pins);
+        return response()->json($boards);
+
     }
 
     public function findAll() {
-        $pins = Pin::all();
-        return response()->json($pins);
+        $boards = Board::all();
+        return response()->json($boards);
     }
 
     public function findById($id) {
-        $pins = Pin::where('id', $id)->first();
+        $boards = Board::where('id', $id)->first();
+        return response()->json($boards);
+    }
+
+    public function findBoards($id) {
+        $boards = Board::where('id', $id)->first();
+        $pins = $boards->pins;
         return response()->json($pins);
+    }
+
+    public function delete($id) {
+        $boards = Board::where('id', $id)->first();
+        $boards->delete();
+
+        return  response()->json("Board deleted");
+    }
+
+    public function update(Request $request, $id) {
+        $board = Board::where('id', $id)->first();
+        $dataFromTheBoardToUpdate = $request->all();
+        $board->update($dataFromTheBoardToUpdate);
+
+        return  response()->json($board);
     }
 }
