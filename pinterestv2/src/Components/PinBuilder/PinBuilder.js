@@ -1,8 +1,12 @@
 import React, {Fragment, useState} from 'react';
 import "./PinBuilder.css";
-import Pin from "../Pin/Pin";
 
-export const PinBuilder = (props) => {
+import {FetchBoards} from "./FetchBoards";
+import PinPreview from "./PinPreview";
+import {UploadImage} from "./UploadImage";
+
+export const PinBuilder = ({boards}) => {
+
 
         //Formulario
         const initialState = {
@@ -45,6 +49,7 @@ export const PinBuilder = (props) => {
             })
         };
 
+
         return (
             <Fragment>
                 <div className="DivContainer">
@@ -59,6 +64,7 @@ export const PinBuilder = (props) => {
                                     value={data.name}
                                     type="text"
                                     autocomplete="off"
+                                    style={{fontSize: 30}}
                                 />
                                 <input
                                     onChange={(event => handleInputChange(event))}
@@ -68,11 +74,8 @@ export const PinBuilder = (props) => {
                                     type="text"
                                     name="description"
                                     autocomplete="off"
+                                    style={{fontSize: 25}}
                                 />
-
-                                <label>
-                                    Foto:
-                                </label>
                                 <input
                                     onChange={(event => handleInputChange(event))}
                                     value={data.img_url}
@@ -80,26 +83,26 @@ export const PinBuilder = (props) => {
                                     required="yes"
                                     type="text"
                                     name="img_url"
+                                    style={{fontSize: 22}}
                                 />
                                 <label>
                                     Tablero:
                                 </label>
-                                <input
+                                <select
                                     onChange={(event => handleInputChange(event))}
                                     value={data.board_id}
                                     name="board_id"
-                                    type="text"
-
-                               />
+                                >{boards.map(board => (<option value={board.id}>{board.name}</option>))}
+                                </select>
                                 <button onClick={() => handleFormSubmit()}
                                         value="Guardar"
                                 >Submit</button>
                             </div>
                         </div>
                     <div className="MyPins">
-                        <h1>Mis Pins</h1>
-                        <h3>Para hacer el modo edit, habría que insertar una prop en las rutas para cambiar el tipo de petición al backend</h3>
-                        <div className="showPinsUploaded">{created !== undefined ? <Pin data={{name: created.name, img_url: created.img_url}}/> : null}</div>
+                        <h1>Editar pin</h1>
+                        <p>Para hacer el modo edit, habría que insertar una prop en las rutas para cambiar el tipo de petición al backend</p>
+                        <div className="showPinsUploaded">{created !== undefined ? <PinPreview data={{name: created.name, img_url: created.img_url}}/> : null}</div>
                     </div>
                 </div>
             </Fragment>

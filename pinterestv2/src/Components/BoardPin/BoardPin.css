@@ -1,0 +1,77 @@
+.Columns {
+    flex: 16%;
+    padding: 0 2px;
+}
+.BoardPin-Image {
+    max-width: 236px;
+    margin-top: 20px;
+    margin-left: 20px;
+    border-radius: 35px;
+    width: 100%;
+    height: auto;
+    align-items: center;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.container {
+    position: relative;
+}
+
+.onHoverSend {
+    top: 92%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    position: absolute;
+    background-color: #e1e1e1;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.onHoverMenu {
+    position: absolute;
+    top: 92%;
+    left: 85%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #e1e1e1;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+}
+
+.onHoverGuardar {
+    top:12%;
+    left: 79%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #e20e0e;
+    font-size: 15px;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50px;
+    color: white;
+    font-family: Ubuntu;
+}
+
+.sendButton {
+    width: 10px;
+    height: 10px;
+}
+
+.menuButton {
+    width: 10px;
+    height: 10px;
+}
+
+button {
+    border-radius: 50%;
+}
