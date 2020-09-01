@@ -58,5 +58,6 @@ class PinsController extends Controller
         $pin = Pin::where('id', $id)->first();
         $dataFromThePinToUpdate = $request->all();
         $pin->update($dataFromThePinToUpdate);
+        return response()->json($pin);
     }
 }

@@ -5,17 +5,15 @@ import Pin from "./Pin";
 
 const SinglePinView = () => {
 
-
-
     const [pin, setPin] = useState();
     let params = useParams();
 
     useEffect(() => {
-        fetch(`http://localhost/api/pins/${params.id}`)
+            fetch(`http://localhost/api/pins/${params.id}`)
             .then(responsePin => responsePin.json())
             .then(pinFromResponse => {
-                setPin(pinFromResponse) ;
-            });
+                setPin(pinFromResponse);
+                })
     }, []);
 
     return(

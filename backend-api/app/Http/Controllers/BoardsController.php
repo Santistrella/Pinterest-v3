@@ -50,8 +50,8 @@ class BoardsController extends Controller
 
     public function update(Request $request, $id) {
         $board = Board::where('id', $id)->first();
-        $dataFromTheBoardToUpdate = $request->all();
-        $board->update($dataFromTheBoardToUpdate);
+        $boardNewData = $request->all();
+        $board->update($boardNewData);
 
         return  response()->json($board);
     }
